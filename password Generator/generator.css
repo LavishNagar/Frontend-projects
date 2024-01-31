@@ -1,0 +1,267 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --dk-violet: hsl(268, 75%, 9%);
+  --lt-voilet: hsl(268, 47%, 21%);
+  --lt-voilet2: hsl(281, 89%, 26%);
+  --vb-voilet: hsl(285, 91%, 52%);
+  --vb-voilet2: hsl(290, 70%, 36%);
+
+  --vb-yellow: hsl(52, 100%, 62%);
+  --pl-white: hsl(0, 0%, 100%);
+  --vb-cyan: hsl(176, 100%, 44%);
+  --vb-cyan2: hsl(177, 92%, 70%);
+  --dk-text: hsl(198, 20%, 13%);
+}
+
+
+  
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+
+
+  justify-content: center;
+  background-image: linear-gradient(
+    231deg,
+    rgba(22, 6, 40, 1) 0%,
+    rgba(52, 28, 79, 1) 50%,
+    rgba(88, 7, 125, 1) 100%
+  );
+  background-repeat: no-repeat;
+}
+
+.indecator{
+  position: relative;
+  left: 346px;
+  bottom: 20px;
+  background-color: white;
+
+  height: 16px;
+  width :16px;
+  border-radius:50%;
+  border :1px solid black;
+  box-shadow:1px 2px 15px 6px brown;
+
+}
+
+.container {
+  position:relative;
+  top: 120px;
+  width: 400px;
+  height: 300px;
+}
+
+.password-length{
+  padding-top:14px;
+}
+h1 {
+  color: var(--pl-white);
+  opacity: 0.75;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  line-height: 1.7;
+  font-size: 22px;
+}
+
+.main-display {
+  background-color: var(--dk-violet);
+  border-radius: 6px;
+  border-bottom: 3px solid var(--lt-voilet2);
+  margin: 4px 0;
+  padding-top: 0.35rem;
+}
+.readonly {
+  outline: none;
+  width: 85%;
+  background-color: transparent;
+  padding: 0.65rem 1rem;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--vb-yellow);
+  border: none;
+
+  letter-spacing: 1px;
+}
+.readonly::placeholder {
+  color: var(--vb-yellow);
+  letter-spacing: 1px;
+}
+
+.fa-copy {
+
+  position:relative;
+  left: 345px;
+  bottom: 30px;
+  background-color:var(--dk-violet);
+  height: 20px;
+  width: 22px;
+  color: white;
+  cursor: pointer;
+
+}
+.copied{
+  position: relative;
+  background-color: var(--vb-voilet);
+  color: var(--vb-yellow);
+  bottom: 41px;
+  left: 340px;
+  padding: 4px;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  opacity: 0;
+}
+.copied.active{
+opacity:1;
+
+}
+
+
+
+
+
+/*      .active{
+  position:relative;
+  bottom: 30px;
+  color: white;
+
+  background: red;
+}*/
+.password-quality {
+  border-radius: 6px;
+  position: relative;
+  padding-left: 16px;
+  top: 8px;
+  background-color: var(--dk-violet);
+}
+
+h2 {
+  position: relative;
+  top: 8px;
+
+  font-size: 21px;
+  color: white;
+}
+
+
+h3 {
+  position: relative;
+  color: var(--vb-yellow);
+  left: 340px;
+  top: -15px;
+}
+.generatepassword {
+  position: relative;
+
+  padding: 10px;
+  left: 40px;
+
+  bottom: 10px;
+  width: 280px;
+  border-bottom: 2.5px solid var(--vb-yellow);
+  background-color: var(--vb-voilet);
+  border-radius: 8px;
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--vb-yellow);
+}
+label{
+
+  color: var(--pl-white);
+  letter-spacing: 0.75px;
+  color: white;
+
+}
+
+.slider{
+
+  appearance: none;
+  width: 100%;
+  height: 12px;
+  cursor: pointer;
+
+
+background-image: linear-gradient(var(--vb-voilet),var(--vb-voilet));
+background-repeat: no-repeat;
+background-color: var(--lt-voilet);
+
+border:none;
+outline: none;
+z-index: -1;
+
+
+border-radius: 12px;
+margin-bottom: 23px;
+margin-top: 8px;
+}
+.slider::-webkit-slider-thumb{
+
+  position: relative;
+  appearance: none;
+  height:27.5px;
+  width: 27.5px;
+  font-size: 30px;
+  background-color: var(--vb-yellow);
+  border-radius: 50%;
+
+}
+.slider:focus{
+  outline:2px solid var(--vb-yellow);
+}
+.slider::-webkit-slider-thumb:hover{
+  outline: 2px solid var(--vb-yellow);
+  background-color: var(--dk-violet);
+  box-shadow: 0px 0px 25px 5px rgba(255,229,61,0.80);
+
+
+}
+.checkbox{
+  display: flex;
+  gap: 10px;
+  padding-bottom: 5px;
+
+line-height: 25px;
+}
+
+.strength{
+  color: white;
+  line-height: 30px;
+  padding-left: 10px;
+
+}
+.box{
+  position: relative;
+  top: 5px;
+  height: 16px;
+  width: 16px;
+}
+
+/* Base styles for larger screens (desktop) */
+/* ... Your existing CSS code ... */
+
+/* Media query for screens with a maximum width of 600px (typical for mobile devices) */
+@media (max-width: 600px) {
+  /* Center the password generator */
+
+  body {
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Make the body full height */
+    padding: 0; /* Reset padding */
+  }
+
+  .container {
+    top: 0; /* Reset top position */
+    margin: 0 auto; /* Center horizontally */
+  }
+
+  /* Additional adjustments for mobile styling as needed */
+}

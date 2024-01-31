@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <style>
+        * {
+            margin: 0;
+            
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .newmain {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgb(167, 88, 88);
+        }
+
+        .main {
+            height: 80vh;
+            width: 80vw;
+            overflow: hidden;
+
+
+            border-radius: 10px;
+            background-color: white;
+            border: 1px solid black;
+
+        }
+
+        .upperdesign {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 20px;
+            height: 13%;
+            padding: 8px;
+            background-color: brown;
+        }
+
+        .input {
+            width: 35px;
+            font-size: 19px;
+            background: white;
+            height: 27px;
+            font-weight: 800;
+            columns: grey;
+            padding-left: 6px;
+            padding-top: 1px;
+            font-weight: 400;
+            border: 2px solid yellow;
+
+        }
+
+        label {
+            font-size: 19px;
+
+        }
+
+        .lowerdesign {
+            background-color: yellow;
+            display: flex;
+            height: 500px;
+
+            flex-wrap: wrap;
+            gap: 14px;
+            padding-top: 3px;
+            padding-left: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+
+        .gola {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            font-size: 19px;
+            width: 40px;
+            border-radius: 50%;
+            background-color: skyblue;
+            border: 1px solid black;
+
+        }
+
+        .gola:hover {
+            background-color: rgb(97, 61, 61);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="newmain">
+
+        <div class="main">
+            <div class="upperdesign">
+                <label for="1">Hit</label>
+                <div class="input input1"><b>0</b></div>
+                <label for="2">Timer</label>
+                <div class="input input2"><b>60</b></div>
+
+                <label for="3">Score</label>
+                <div class="input input3"><b>00</b></div>
+
+            </div>
+            <div class="lowerdesign">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //let gola=document.querySelector('.gola');
+        ////let score=document.querySelector('#3');
+        //let lowerdesign=document.querySelector('.//lowerdesign');
+        //for(let i=0;i<188;i++){
+        //    let a=document.createElement('div');
+        //    a.classList.add('gola');
+        //    a.innerHTML=Math.floor(Math.random()*10+1);
+        //    lowerdesign.appendChild(a);
+        //    
+        //    
+        //}
+        
+        function bubble(){
+            let container = '';
+            for (let i = 0; i < 188; i++) {
+            let a = Math.floor(Math.random() * 25 + 1)
+            container += `<div class='gola' >${a}</div>`;
+        }
+        document.querySelector('.lowerdesign').innerHTML = container;
+    }
+    bubble();
+   
+        let timers=document.querySelector('.input2');
+        let timer=60;
+        function runtimer(){
+
+            var timeint=setInterval(()=>{
+                if(timer<=0){
+                    
+                    clearInterval(timeint);
+                    document.querySelector('.lowerdesign').innerHTML=`<h1>Thank You for playing this Game.</h1>'`;
+                    
+                    console.log('timer is 0;');
+                    
+                    
+                }
+                else{
+                    
+                    timer--;
+                    timers.textContent=timer;
+                }
+
+            },1000);}
+        
+        runtimer();
+        let score=0;
+        function increasescore(){
+            let a=document.querySelector('.input3');
+            score+=10;
+            a.textContent=score;
+        }
+        
+        var hi;
+        function hit(){
+            let hitrn=document.querySelector('.input1')
+            hitrn.textContent=Math.floor(Math.random()*20+1);
+            hi=Number(hitrn.textContent);
+        }
+      
+        hit();
+
+
+        let lowerdesign=document.querySelector('.lowerdesign');
+
+        let gola=document.querySelectorAll('.gola');
+        
+        
+        lowerdesign.addEventListener('click',function(e){
+            let check=(Number(e.target.innerHTML));
+             if(hi===check){
+            
+            increasescore();
+            bubble();
+            hit();
+            
+
+        }
+        });
+
+        
+
+       
+    </script>
+</body>
+
+</html>

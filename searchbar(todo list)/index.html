@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>searchbar(todolist)</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(73, 66, 66);
+
+        }
+
+        .searchbox {
+            width: 510px;
+            background-color: aliceblue;
+            height: 40px;
+            margin: auto;
+            position: relative;
+            top: 230px;
+            border-radius: 4px;
+
+
+        }
+
+
+        input {
+
+            padding: 8px 8px;
+            border: none;
+            font-size: 20px;
+            width: 455px;
+            border: none;
+            outline: 0;
+            border-bottom: 1.5px solid black;
+
+        }
+
+        button {
+            height: 28px;
+            width: 40px;
+            background-color: skyblue;
+            color: white;
+            padding-top: 3px;
+            border-radius: 5px;
+
+        }
+
+        button:hover {
+            background-color: red;
+        }
+
+        .resultbox ul li {
+            padding: 8px 12px;
+            background-color: yellow;
+            height: 40px;
+            font-style: italic;
+            list-style: none;
+            border-bottom: 1px solid black;
+        }
+
+        .resultbox ul li:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="searchbox">
+        <div class="row">
+            <input type="text" , class="inputbox" placeholder="write something to add...">
+            <button>add</button>
+        </div>
+        <div class="resultbox">
+            
+        </div>
+    </div>
+
+    <script>
+        let button = document.querySelector('button');
+        let inputbox = document.querySelector('.inputbox');
+        let resultbox = document.querySelector('.resultbox');
+        
+
+        button.addEventListener('click', function hi(){
+            let v=inputbox.value;
+            if(v.length)
+            {
+                console.log(v);
+                resultbox.innerHTML+= '<ul><li>'+v+'</li></ul>';
+
+            }
+            
+        })
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

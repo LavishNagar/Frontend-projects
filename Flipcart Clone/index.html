@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flipcart</title>
+ 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        *{
+            margin: 0;
+           
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            height: 100vh;
+            width: 100vw;
+            display: block;
+
+        }
+        .flipcart{
+            transform: translateY(-30%);
+            height: 110px;
+            width: 220px;
+        }
+        .productnavbar img{
+            height: 100px;
+            width:145px;
+        }
+        .bigimage img{
+            width: 100%;
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-evenly;
+            position: relative;
+            top: 20px;
+        }
+        .searchcontainer{
+            display: flex;
+            position: relative;
+            
+        }
+        .searchbar{
+            width: 50vw;
+            height: 40px;
+            border-radius: 10px;
+            font-size: 19px;
+            padding-right: 30px;
+        }
+        .searchicon{
+            position: absolute;
+            right: 10px;
+            transform: translateY(50%);
+
+          
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            
+        <img src="./images/newimage.png" alt="" class="flipcart" height="160" width="300">
+        <div class="searchcontainer">
+           
+        <input type="search"  placeholder= "Search for Product Brands and More" class="searchbar">
+        <div class="searchicon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+    </div>
+        <div class="home"> <i class="fa-solid fa-truck-fast"></i> Become a seller</div>
+        <div class="login"><i class="fa-solid fa-user"></i> Login</div>
+        <div class="cart"><i class="fa-solid fa-cart-shopping"></i> Cart</div>
+
+    </div>
+
+    <div class="productnavbar">
+        <img src="./images/grocery.png" alt="Not Found" class="img1">
+        <img src="./images/mobiles.png" alt="Not Found" class="img1">
+        <img src="./images/fashion.png" alt="Not Found" class="img1">
+        <img src="./images/electronics.png" alt="Not Found" class="img1">
+        <img src="./images/furniture.png" alt="Not Found" class="img1">
+        <img src="./images/appliances.png" alt="Not Found" class="img1">
+        <img src="./images/travel.png" alt="Not Found" class="img1">
+        <img src="./images/toys.png" alt="Not Found" class="img1">
+        <img src="./images/twowheeler.png" alt="Not Found" class="img1">
+     
+
+    </div>
+    <div class="bigimage">
+        <img src="./images/screenshot.png" alt="">
+    </div>
+    </div>
+    
+    
+</body>
+</html>

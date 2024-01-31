@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rotate circle</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgb(121, 122, 113);
+      }
+      .outercircle {
+        margin: auto;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        height: 300px;
+        width: 300px;
+        border-radius: 50%;
+        /*background-image: linear-gradient(red,blue);*/
+        border: 4px solid goldenrod;
+
+        animation: rotate 4s linear infinite;
+      }
+      .circle {
+        position: absolute;
+
+        top: 62px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        height: 30px;
+        background-size: contain;
+        width: 30px;
+        border-radius: 50%;
+        border: 1px solid black;
+        background-image: url("download.jpg");
+      }
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outercircle">
+      <div class="circle"></div>
+    </div>
+  </body>
+</html>

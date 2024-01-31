@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lamp on off website</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            overflow: hidden;
+            background-color: rgb(46, 34, 34);
+        }
+        .navbar{
+
+            margin: 16px 25px;
+            display: flex;
+        }
+        .menuimage{
+            margin-top: 10px;
+            margin-right: 20px;
+            margin-left: 20px;
+           
+            
+            
+            height: 26px;
+            width: 35px;
+        }
+        .logo{
+            
+          
+            height: 50px;
+            width: 11rem;
+        }
+        
+        .rightbar{
+            display: flex;
+            position: absolute;
+            justify-content: space-between;
+            right: 20px;
+            top: 30px;
+            gap :2.2rem;
+        }
+      
+        .navbutton{
+            color: white;
+            font-size: 17px;
+            letter-spacing: .5px;
+
+        }
+        .navbutton:hover{
+            color: grey;
+            transition: .5s linear;
+            cursor: pointer;
+        }
+
+        .onoffButton{
+            height: 1.6rem;
+            width: 3rem;
+            border: 1px solid red;
+            border-radius: 30px;
+            background-color: white;
+            position: relative;
+            
+            
+            
+
+            
+        }
+        .onoffButton.anotheractive{
+            transition: 2s;
+            background-color: yellow;
+            
+        }
+        .new{
+            border: 1px solid brown;
+            background-color: greenyellow;
+            border-radius: 46%;
+            width:1.4rem ;
+            height: 1.5rem;
+            
+            
+            
+        }
+        .new.active{
+            position: absolute;
+            left: 1.5rem;
+        } 
+        .middleportion{
+            color: white;
+            display :flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            transform: translate(22%,30%);
+            font-size: 150%;
+        }
+        .middleportion button{
+            padding: 15px 30px;
+            border-radius: 35px;
+            background-color: green;
+            font-size: 20px;
+            cursor: pointer;
+
+        }
+        .middleportion button:hover{
+            background-color: rgb(4, 134, 4);
+        }
+        h1{
+            margin: -10px;
+        }
+        .lamp{
+            position: absolute;
+            left: 300px;
+            
+            height: 240px;
+            width: 150px;
+            
+
+        }
+        .light{
+            position:absolute;
+            left: 93px;
+            height: 300px;
+            width: 550px;
+            top: 250px;
+            transition: 1s linear;
+
+            opacity: 0;
+        }
+        .lighton{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+
+        <div class="navbar">
+          
+         
+
+        <img class="menuimage" src="menu.png">
+        <img class="logo" src="logo.png">
+
+      <img class="lamp" src="lamp.png" alt="">
+      <img class="light" src="light.png" alt="">
+      
+        <div class="rightbar">
+        <div class="navbutton">Latest</div>
+        <div class="navbutton">Modern</div>
+        <div class="navbutton">Contemporary</div>
+        <div class="navbutton">Affordable</div>
+        <div onclick="onoff()" class="onoffButton"><button class="new"></button></div>
+    </div>
+</div>
+    <div class="middleportion">
+     <h1>Latest</h1>
+     <h1>in Lighting</h1>
+     <div class="paragraph">
+     <p>This is the first lamp from our company we're making a huge collection </p>
+     <p> of modern lamps in all categories from home use to office use.</p>
+     </div>
+     <button>Check All Collections</button>
+     
+    </div>
+
+    </div>
+    <script>
+
+        
+let button = document.querySelector('.new');
+let onoffButton=document.querySelector('.onoffButton');
+let light = document.querySelector('.light');
+let isLightOn = false; // Boolean variable to track the light's state
+
+function onoff() {
+  if (!isLightOn) {
+    // Turn the light on
+    console.log('Light is turned on');
+    button.classList.add('active');
+    onoffButton.classList.add('anotheractive');
+    light.classList.add('lighton');
+    isLightOn = true; // Update the state to indicate that the light is on
+  } else {
+    // Turn the light off
+    console.log('Light is turned off');
+    onoffButton.classList.remove('anotheractive');
+    button.classList.remove('active');
+    light.classList.remove('lighton');
+    isLightOn = false; // Update the state to indicate that the light is off
+  }
+}
+
+
+            
+
+
+
+        
+    </script>
+</body>
+</html>

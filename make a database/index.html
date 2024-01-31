@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>my database</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+     
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+  
+     
+        .container{
+            display:flex;
+           justify-content: space-evenly;
+            
+            
+          
+           
+        }
+     
+  
+      h1 {
+        font-size: 45px;
+        color: white;
+        text-shadow: 0px 0px 4px black;
+      }
+      .heading{
+        
+        display:flex;
+        gap: 20px;
+      }
+      
+      .information{
+        position: static;
+        
+        display: flex;
+        justify-content: space-evenly;
+       flex-direction: column;
+       gap: 20px;
+      
+      }
+  
+      label{
+        font-size: 22px;
+        text-shadow: 1px 0px 2px gold;
+      }
+      input{
+        height: 40px;
+        box-shadow: 1px 0px 5px brown;
+        border: none;
+        outline: none;
+        font-size: 21px;
+        font-style: italic;
+        letter-spacing: 1px;
+        cursor: pointer;
+        text-transform: capitalize;
+
+
+      }
+      button{
+        height: 43px;
+        transform: translateX(46%);
+        width: 140px;
+        box-shadow: 5px 5px 8px rgb(128, 128, 128);
+        font-size: 18px;
+
+      }
+      th{
+        padding: 10px 40px;
+        transform: translateX(-10%);
+        font-size: 24px;
+      
+      }
+    
+      td{
+        min-width: 200px;
+        padding: 10px 40px;
+       font-size: 20px;
+       
+       font-style: italic;
+       text-transform: capitalize;
+       cursor: pointer;
+       text-shadow: 0px 0px 2px skyblue;
+      }
+      .fa-solid{
+      transform: translate(-40%,10%);
+    
+      }
+      @media screen and (max-width:800px) {
+        
+        .container{
+        
+          display: flex;
+          flex-direction: column;
+          background-color: green;
+          
+
+        }
+        td{
+          padding: 0px 0px;
+
+        }
+      }
+     
+     
+   
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="information">
+        <h1>!Fill the information !</h1>
+            <label for="roll">Roll No :-</label>
+        <input type="number" id="roll" placeholder="Enter your roll..." />
+
+        <label for="name">Student Name :-</label>
+        <input type="text" id="name" placeholder="Enter your name..."/>
+
+        <label for="father">Father Name :-</label>
+        <input type="text" id="father" placeholder="Enter your Father Name..."/>
+
+        <button data="submit">Submit</button>
+      
+      </div>
+      
+    
+
+      <div class="enteredinformation">
+            <h1>! Your entered Details! </h1>
+           
+                <table class="table">
+                    <tr>
+                      <th>Roll No</th>
+                      <th>Student Name</th>
+                      <th>Father Name</th>
+                    </tr>
+                   
+</table>
+
+            
+      </div> 
+      
+      
+      <script>
+        let name=document.querySelector('#name');
+        let roll=document.querySelector('#roll');
+        let father=document.querySelector('#father');
+        let submit=document.querySelector('[data="submit"]');
+       
+
+        submit.addEventListener('click',update);
+        
+        function update(){
+        
+          let parent=document.createElement('tr');
+          let a=document.createElement('td');
+          let b=document.createElement('td');
+          let c=document.createElement('td');
+          let x=document.createElement('td');
+          let table=document.querySelector('.table');
+          a.classList.add('td');
+          b.classList.add('td');
+          c.classList.add('td');
+          x.classList.add('td');
+          x.classList.add('fa-solid');
+          
+          parent.appendChild(a);
+          parent.appendChild(b);
+          parent.appendChild(c);
+          parent.appendChild(x);
+        
+      
+          table.appendChild(parent);
+
+           a.innerHTML=roll.value;
+           b.innerHTML=name.value;
+           c.innerHTML=father.value;
+           x.innerHTML='<i class="fa-solid fa-xmark"></i>'
+
+
+           reload();
+
+           x.addEventListener('click',cross);
+           
+            function cross(){
+          console.log('hi');
+            a.innerHTML='';
+           b.innerHTML='';
+           c.innerHTML='';
+           x.innerHTML='';
+           a.classList.remove('td');
+           b.classList.remove('td');
+           c.classList.remove('td');
+           x.classList.remove('td');
+           x.classList.remove('fa-solid');
+           
+          }
+          
+        }
+
+        function reload(){
+          roll.value='';
+          father.value='';
+          name.value='';
+
+
+        }
+      
+        
+
+
+
+
+
+
+
+
+
+
+      </script>
+
+
+  </body>
+</html>

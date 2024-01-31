@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modern chair</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      .container {
+        background-color: blueviolet;
+        color: black;
+      }
+      .text {
+        height: 100vh;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+      }
+      #h5 {
+        position: absolute;
+        left: 833px;
+        color: white;
+        top: 145px;
+      }
+      #h1 {
+        position: absolute;
+        left: 833px;
+        top: 161px;
+        color: white;
+      }
+      #h2 {
+        position: absolute;
+        left: 840px;
+        top: 202px;
+        color: white;
+      }
+      #h03 {
+        position: absolute;
+        left: 930px;
+        top: 205px;
+        color: white;
+        text-decoration-line: line-through;
+      }
+      .button1 {
+        position: absolute;
+        left: 930px;
+        top: 260px;
+        color: white;
+      }
+      .button1 {
+        position: absolute;
+        left: 840px;
+        top: 270px;
+        color: white;
+        background: blueviolet;
+        padding: 6px;
+        font-size: 20px;
+
+        border: 1px solid black;
+        border-radius: 3px;
+      }
+      .button2 {
+        position: absolute;
+        top: 270px;
+        left: 990px;
+        color: white;
+        background-color: blueviolet;
+        padding: 6px;
+        border: 1px solid black;
+        border-radius: 3px;
+        font-size: 19px;
+      }
+      .para {
+        border: 1px solid black;
+        position: absolute;
+        top: 325px;
+        right: 190px;
+        color: white;
+        padding: 4px;
+        letter-spacing: 1px;
+      }
+      .choose {
+        position: absolute;
+        top: 420px;
+        right: 380px;
+        color: white;
+        font-size: 18px;
+        letter-spacing: 1.2px;
+      }
+      .color {
+        height: 40px;
+        width: 40px;
+        border: 1px solid black;
+        border-radius: 4px;
+        position: absolute;
+        top: 460px;
+      }
+      #color1 {
+        background-color: brown;
+        position: absolute;
+        right: 460px;
+      }
+      #color2 {
+        background-color: blue;
+        position: absolute;
+        right: 400px;
+      }
+      #color3 {
+        background-color: orange;
+        position: absolute;
+        right: 340px;
+      }
+      #color4 {
+        background-color: grey;
+        position: absolute;
+        right: 280px;
+      }
+      #color5 {
+        background-color: yellow;
+        position: absolute;
+        right: 220px;
+      }
+      #color6 {
+        background-color: red;
+        position: absolute;
+        right: 160px;
+      }
+      #cart {
+        border: 1px solid black;
+        background-color: blueviolet;
+        padding: 4px;
+        position: absolute;
+        right: 280px;
+        top: 530px;
+        color: white;
+        width: 150px;
+        height: 35px;
+        font-size: 18px;
+        border-radius: 5px;
+      }
+
+      .animination {
+        position: absolute;
+        top: 325px;
+        right: 190px;
+        opacity: 0;
+
+        height: 70px;
+        width: 300px;
+        border: 1px solid black;
+        color: white;
+        font-size: 18px;
+        letter-spacing: 1.2px;
+
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div click="remove()" class="container">
+      <div class="text">
+        <img src="1.jpg" height="270px" width="240px" alt="find" />
+
+        <div id="h5"><h5>MODERN CHAIR</h5></div>
+        <div id="h1"><h1>Telford Longue</h1></div>
+        <div id="h2"><h2>$254</h2></div>
+        <div id="h03"><h3>$435</h3></div>
+        <button onclick="remove()" class="button1"><b>Description</b></button>
+        <button onclick="details()" class="button2" id="details">
+          <b>Details</b>
+        </button>
+
+        <div class="para">
+          Lorem ipsum dolor, sit amet consectetur <br />
+          adipisicing elit. Unde quis debitis tenetur,<br />
+          odit nisi veniam.
+        </div>
+
+        <div class="choose">Choose Color:</div>
+
+        <div class="color" id="color1"></div>
+        <div class="color" id="color2"></div>
+        <div class="color" id="color3"></div>
+        <div class="color" id="color4"></div>
+        <div class="color" id="color5"></div>
+        <div class="color" id="color6"></div>
+
+        <button id="cart">
+          <i class="fa-solid fa-cart-arrow-down"></i> Add To Cart
+        </button>
+
+        <div class="animination">
+          This is a details block about the chair<br />
+          Or can go our website
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    {
+      let a = document.querySelector("#color1");
+      let b = document.querySelector(".container");
+      a.addEventListener("click", () => {
+        b.style.backgroundColor = "brown";
+      });
+    }
+    {
+      let a = document.querySelector("#color2");
+      let b = document.querySelector(".container");
+      a.addEventListener("click", () => {
+        b.style.backgroundColor = "blue";
+      });
+    }
+    {
+      let c = document.querySelector("#color3");
+      let d = document.querySelector(".container");
+      c.addEventListener("click", () => {
+        d.style.backgroundColor = "orange";
+      });
+    }
+    {
+      let a = document.querySelector("#color4");
+      let b = document.querySelector(".container");
+      a.addEventListener("click", () => {
+        b.style.backgroundColor = "grey";
+      });
+    }
+    {
+      let a = document.querySelector("#color5");
+      let b = document.querySelector(".container");
+      a.addEventListener("click", () => {
+        b.style.backgroundColor = "yellow";
+      });
+    }
+    {
+      let e = document.querySelector("#color6");
+      let f = document.querySelector(".container");
+      e.addEventListener("click", () => {
+        f.style.backgroundColor = "red";
+      });
+    }
+
+    let a = document.querySelector(".button2");
+
+    document.addEventListener("click", () => {
+      body.sytle.opacity = 1;
+    });
+    let d = document.querySelector("#details");
+    let e = document.querySelector(".para");
+    let f = document.querySelector(".animination");
+    function remove() {
+      e.classList.remove('animination');
+      e.style.opacity = 1;
+      f.style.opacity = 0;
+      
+      
+
+    }
+
+    function details() {
+      e.style.opacity = 0;
+
+      f.style.opacity = 1;
+
+      e.classList.add("animination");
+    }
+  </script>
+</html>

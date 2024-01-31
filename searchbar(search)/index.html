@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>searchbar</title>
+
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins', sans-serif;
+            box-sizing: border-box;
+        }
+         body{
+            background-color: #262a2f;
+            color: #333;
+         }
+         .searchbox{
+            width: 600px;
+            background-color: #fff;
+            margin: 200px auto;
+         }
+         .row{
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+         }
+         input{
+            height:22px ;
+            width: 550px;
+            background-color: transparent;
+            border: none;
+            outline: 0;
+            font-size: 18px;
+            color: #333;
+            border-bottom: 1px solid black;
+             }
+        .fa-solid{
+            border: none;
+            width: 25px;
+            color: #555;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        button{
+            border: none;
+        }
+        li{
+            height: 40px;
+            padding: 10px;
+            
+        }
+        .listresult ul li{
+            list-style: none;
+            border-radius: 3px;
+            padding: 15px 10px;
+            cursor: pointer;
+        
+        }
+
+      .listresult ul li:hover{
+            background-color: rgb(166, 199, 212);
+
+        }
+        .listresult{
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class="searchbox">
+        <div class="row">
+            <input type="text" id="input-box" placeholder="Search here ...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="listresult">
+
+        </div>
+        
+    </div>
+
+
+
+    <script>
+        let avaiablewords=["how are you sumit ", 
+        "vikash is a outstading person",
+        "subh is a very intelligent boy in other field ",
+        "aditya is a multitalented young person",
+        
+        "what is your name?",
+        "sumit are you really want to go himalya",
+        'where are you goingg vivek kumar mishra ',
+        'my hobbies to sing songs',
+        'is vivek want to became a millionare?'];
+
+
+        let listresult=document.querySelector('.listresult');
+        let inputbox=document.querySelector('#input-box');
+
+        inputbox.onkeyup=function(){
+            let result=[];
+            let input=inputbox.value;
+            if(input.length){
+                result=avaiablewords.filter((keyword)=>{
+                    return keyword.toLowerCase().includes(input.toLowerCase());
+                })
+            
+        }
+        display(result);
+    }
+
+    function display(result){
+        const content=result.map((list)=>{
+            return "<li onclick=selectinput(this)>"+ list + "</li>";
+        })
+        listresult.innerHTML='<ul>'+content+'</ul>';
+    }
+
+    function selectinput(list){
+
+        inputbox.value=list.innerHTML;
+        listresult.innerHTML='';
+    }
+
+
+
+    
+
+
+        
+
+    
+    </script>
+    
+</body>
+</html>

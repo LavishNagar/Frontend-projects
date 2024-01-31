@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PASSWORD GENERATOR</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+  <link rel="stylesheet" href="generator.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Password Generator</h1>
+      <div class="main-display">
+        <input readonly class="readonly" placeholder="PASSWORD" />
+        <div class="copybutton">
+          <i class="fa-regular fa-copy"></i>
+          <span class="copied"></span>
+        </div>
+      </div>
+      <div class="password-quality">
+        <div class="password-length">
+          <h2>PasswordLength</h2>
+          <h3>10</h3>
+        </div>
+
+        <input
+          type="range"
+          min="1"
+          max="20"
+          step="1"
+          data-length-slider
+          class="slider"
+        />
+        <div class="checkbox">
+          <input type="checkbox" class="box" id="checkbox1" checkbox1 />
+          <label for="checkbox1">Include Uppercase Letters</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" class="box" id="checkbox2" checkbox2 />
+          <label for="checkbox2">Include Lowercase Letters</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" class="box" id="checkbox3" checkbox3 />
+          <label for="checkbox3">Include Numbers</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" class="box" id="checkbox4" checkbox4 />
+          <label for="checkbox4">Include Symbols</label>
+        </div>
+        <div class="mainstrength">
+          <div class="strength">Strength</div>
+          <div class="indecator"></div>
+        </div>
+
+        <div class="button">
+          <button class="generatepassword">GENERATE PASSWORD</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="generator.js"></script>
+  </body>
+</html>

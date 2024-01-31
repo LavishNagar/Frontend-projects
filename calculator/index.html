@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(177, 222, 250);
+
+        }
+        
+        .box {
+            height: 100vh;
+            width: 100vw;
+            
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            height: 350px;
+            width: auto;
+            border: 4px solid green;
+            border-radius: 8px;
+            background-color: grey;
+        }
+
+        .button {
+            font-size: 20px;
+            box-shadow:-2px -3px 4px rgb(88, 6, 6),2px 3px 4px rgb(88,6,6);
+            height: 38px;
+            width: 48px;
+            position: relative;
+            left: 14px;
+            background-color:rgb(165, 94, 94);
+            color: white;
+            
+            margin: 4px 9px;
+            border-radius: 4px;
+
+        }
+
+        .button:hover {
+            background-color: rgb(104, 38, 38);
+        }
+
+        .inputbox {
+            font-family: Helvetica, sans-serif;
+            font-size: 26px;
+            border: 2px solid rgb(110, 101, 101);
+            width: 300px;
+            
+            height: 40px;
+            border-radius: 8px;
+            outline: 0;
+            color: rgb(1, 59, 9);
+            
+            margin-bottom: 25px;
+            margin-top: 30px;
+            background-color:rgb(221, 203, 203);
+            box-shadow: -2px -4px 5px yellow,2px 4px 5px yellow;
+            
+        
+            
+            text-align: end;
+        }
+
+        .longbutton {
+            width: 110px;
+            position: relative;
+            left: 17px;
+            top: 2px;
+        }
+        .operator{
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class=box>
+        <form >
+            <input type="text" class="inputbox" name="display" placeholder="" >
+
+            <div>
+                <input type="button" class="button operator" value="AC"
+                onclick="display.value=''">
+                <input class="button operator" type="button" value="DE"
+                onclick="display.value=display.value.toString().slice(0,-1)">
+                <input class="button operator" type="button" value="." onclick="display.value+='.'">
+                <input class="button operator" type="button" value="/"
+                onclick="display.value+='/'" >
+            </div>
+            <div>
+                <input type="button" class="button" value='7'
+                onclick="display.value+=7">
+                <input class="button" type="button" value=8 onclick="display.value+=8">
+                <input class="button" type="button" value=9 onclick="display.value+=9">
+                <input class="button operator" type="button" value=* onclick="display.value+='*'">
+            </div>
+            <div>
+                <input type="button" class="button"
+                value=4 onclick="display.value+=4" >
+                <input class="button" type="button" value=5 onclick="display.value+=5">
+                <input class="button" type="button" value=6 onclick="display.value+=6">
+                <input class="button operator" type="button" value=- onclick="display.value+='-'">
+            </div>
+        
+            <div>
+                <input type="button" class="button" value="1" onclick="display.value+=1">
+                <input class="button" type="button" value="2" onclick="display.value+=2">
+                <input class="button" type="button" value="3" onclick="display.value+=3">
+                <input class="button operator" type="button" value="+" onclick="display.value+='+'">
+            </div>
+            <div>
+               
+                <input type="button" class="button" value="00" onclick="display.value+='00'">
+                <input class="button" type="button" value="0"onclick="display.value+=0" >
+                <input class="button longbutton operator" type="button" value="="
+                onclick="display.value=eval(display.value)">
+                
+            </div>
+     
+  </form>
+        </div>
+  
+        <script>
+            var inputbox = document.querySelector('.inputbox');
+
+// Event listener for keydown event on the input field
+inputbox.addEventListener('keydown', function (event) {
+  // Get the key code of the pressed key
+  var keyCode = event.keyCode;
+
+  // Allow numeric keys (0-9), operator keys (+, -, *, /), and backspace (8)
+  if (
+    (keyCode >= 48 && keyCode <= 57) || // Numeric keys (0-9)
+    (keyCode === 107 || keyCode === 109 || keyCode === 106 || keyCode === 111) || // Operator keys (+, -, *, /)
+    keyCode === 8 // Backspace
+  ) {
+    // Allow the key press
+    return true;
+  } else {
+    // Prevent the key press (don't allow non-numeric and non-operator keys)
+    event.preventDefault();
+    return false;
+  }
+});
+
+
+
+           
+
+
+        </script>
+
+ 
+
+
+</body>
+
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(45, 45, 110);
+
+        }
+
+        .whole {
+
+            width: 500px;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 90px auto 0px;
+            min-height: 420px;
+
+            background-color: brown
+        }
+
+        .quiz {
+            height: 50px;
+            border-bottom: 1px solid rgb(141, 233, 21);
+        }
+
+        .ques {
+            padding-top: 10px;
+        }
+
+        .answers {
+            margin: 20px 16px;
+            display: grid;
+            gap: 20px;
+
+        }
+
+        .answer {
+            padding: 7px;
+            height: 38px;
+            cursor: pointer;
+            border-radius: 5px;
+
+
+            border: 1px solid rgb(252, 251, 251);
+        }
+
+        /*.answer:hover {
+            background-color: rgb(248, 165, 179);
+        }*/
+
+
+        button {
+            background-color: grey;
+            height: 35px;
+            width: 105px;
+            position: relative;
+            left: 150px;
+            border-radius: 10px;
+        }
+
+        .greencolor {
+            background-color: green;
+        }
+
+        .redcolor {
+            background-color: darkred;
+        }
+    </style>
+
+
+
+
+</head>
+
+
+
+<body>
+    <div class="whole">
+        <div class="quiz">
+            <h1>BRAIN Quiz</h1>
+        </div>
+        <div class="ques">
+            <h2>1. What is you name?</h2>
+            <div class="answers">
+                <div class="answer">HIMANSHU</div>
+                <div class="answer">ABHISHEK</div>
+                <div class="answer">LAVISH</div>
+                <div class="answer">RAJ</div>
+            </div>
+        </div>
+        <button>NEXT</button>
+
+    </div>
+
+    <script>
+
+        let questions = [
+            {
+                question: "Fastest man in the world?",
+                answers: [
+                    { text: 'pandey', correct: false },
+                    { text: 'mishra', correct: false },
+                    { text: 'usain bolt', correct: true },
+                    { text: 'sumit', correct: false }]
+            },
+            {
+                question: "Js is a ___ language?",
+                answers: [
+                    { text: 'styling', correct: false },
+                    { text: 'singlethreaded', correct: true },
+                    { text: 'multithreaded', correct: false },
+                    { text: 'low level', correct: false }]
+            },
+            {
+                question: "largest animal on earth?",
+                answers: [
+                    { text: 'elephent', correct: false },
+                    { text: 'whale', correct: true },
+                    { text: 'giraff', correct: false },
+                    { text: 'summit', correct: false }]
+            },
+            {
+                question: "who is vice president of india",
+                answers: [
+                    { text: 'Narendra Mode', correct: false },
+                    { text: 'dropadi mumur', correct: false },
+                    { text: 'jagdip dhnakad', correct: true },
+                    { text: 'Amit Shah', correct: false }]
+            }
+
+        ]
+
+
+
+        let ques = document.querySelector('.ques');
+        let answers = document.querySelector('.answers');
+        let ans_options = document.querySelectorAll('.answer');
+        let button = document.querySelector('button');
+        let h2 = document.querySelector('h2');
+
+
+        let currentquesidx = 0;
+        var score = 0;
+
+        let selectedDiv = null; 
+
+
+        function startquiz() {
+
+
+            showques();
+
+        }
+
+        function showques() {
+            if (currentquesidx >= questions.length) {
+
+
+                h2.innerHTML = `Thank you! for attempt the quiz.
+ Your score is ${score} out of 4.`;
+                button.style.display = 'none';
+
+                while (answers.firstChild) {
+                    answers.removeChild(answers.firstChild);
+                }
+                return;
+            }
+
+            resetState();
+
+
+            button.innerHTML = 'NEXT';
+            let currentques = questions[currentquesidx];
+            let quesNo = currentquesidx + 1;
+            h2.innerHTML = quesNo + '.' + currentques.question;
+
+
+            currentques.answers.forEach((option, index) => {
+
+                let div = document.createElement('div');
+
+                div.innerHTML = option.text;
+                div.classList.add('answer');
+
+
+
+                answers.appendChild(div);
+                
+
+
+
+
+                div.addEventListener('click', function () {
+                    if (selectedDiv !== null) {
+                        //selectedDiv.classList.remove('greencolor');
+                        selectedDiv.classList.remove('redcolor');
+                    }
+                    
+
+                    if (option.correct === true) {
+                        div.classList.add('redcolor');
+                        score++;
+                       
+                    } 
+                    else {
+                        div.classList.add('redcolor');
+                        
+                    }
+                    
+
+
+                    // Set the currently selected div
+                    selectedDiv = div;
+                });
+
+
+
+
+            })
+        }
+
+
+
+
+
+        function resetState() {
+
+            while (answers.firstChild) {
+                answers.removeChild(answers.firstChild);
+            }
+
+        }
+
+
+        button.addEventListener('click', function () {
+
+            currentquesidx++;
+            showques();
+
+
+        })
+
+
+
+        startquiz();
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+<!--create project-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>project 1</title>
+  <style>
+    body {
+      background-color: rgb(240, 109, 109);
+    }
+
+    .div1 {
+      position: relative;
+      top: 370px;
+      gap: 20px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .div2 {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      top: 260px;
+
+
+    }
+
+    .circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+      height: 26px;
+      width: 26px;
+      background-color: white;
+      z-index: 1;
+      border: 3px solid pink;
+      border-radius: 50%;
+      transition: 0.3 ease;
+
+
+    }
+
+    .circle1 {
+      border: 3px solid blue;
+    }
+
+    button {
+      height: 34px;
+      width: 78px;
+      border: 1px solid black;
+      border-radius: 3px;
+      background-color: pink;
+
+    }
+
+    .div3 {
+      display: flex;
+
+
+      position: relative;
+      top: 243.5px;
+    }
+
+    .line {
+      height: 2.9px;
+      width: 100vw;
+
+      border-radius: 4px;
+
+      opacity: 0.8;
+
+      border: 1.4px solid pink;
+      background-color: pink;
+      transition: 0.02s ease;
+      
+
+    }
+
+
+
+
+    .active {
+      border: 3px solid blue;
+
+      
+    }
+  </style>
+</head>
+
+<body>
+  <div class="div1">
+    <button class=" button button1 ">Prev</button>
+    <button class="button button2 ">Next</button>
+  </div>
+  <div class="div2">
+    <div class="circle circle1 active">1</div>
+    <div class="circle circle2">2</div>
+    <div class="circle circle3">3</div>
+    <div class="circle circle4">4</div>
+  </div>
+  <div class="div3">
+    <div class="line "></div>
+  </div>
+
+
+
+  <script>
+    let lin = document.querySelector('.line');
+    let button = document.querySelectorAll('.button');
+    let button1 = document.querySelector('.button1');
+    let button2 = document.querySelector('.button2');
+    let c = document.querySelector('.circle2');
+    let d = document.querySelector('.circle3');
+    let e = document.querySelector('.circle4'); 
+    let circle = document.querySelectorAll('.circle');
+
+
+
+      let count=1;
+      
+button2.addEventListener('click', fork);
+function fork() {
+  count++;
+  if (count > circle.length) {
+    count = circle.length;
+  }
+  update();
+  
+}
+
+button1.addEventListener('click', function () {
+  count--;
+  if (count < 1) {
+    count = 1;
+  }
+  update();
+  
+});
+
+function update() {
+  circle.forEach((eachcircle, index) => {
+    if (index < count) {
+      eachcircle.classList.add('active');
+    } else {
+      eachcircle.classList.remove('active');
+    }
+  });
+  
+  const actives=document.querySelectorAll('.active');
+  
+  lin.style.width=(actives.length-1)/(circle.length-1)*100+'%';
+  lin.style.backgroundColor='blue';
+  lin.style.border='1px solid blue';
+
+  if(count===1){
+    button1.disabled=true;
+  }
+  else if(count===circle.length){
+    button2.disabled=true;
+
+  }
+  else{
+    button1.disabled=false;
+    button2.disabled=false;
+  }
+}
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+      
+      
+    
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+  </div>
+</body>
+
+</html>

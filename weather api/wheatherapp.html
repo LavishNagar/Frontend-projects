@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kablammo&family=Orbitron&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="whetherstyle.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Weather App</h1>
+      <div class="tab-container">
+        <p class="tab" data-userwhether>Your wheather</p>
+        <p class="tab" data-searchwheather>Search Wheather</p>
+      </div>
+
+      <div class="whethercontainer">
+        <!-- grant location container -->
+        <div class="sub-container grant-locationcontainer">
+          <img
+            src="location image.png"
+            height="80"
+            width="80"
+            alt="not found"
+          />
+          <p>Grant Location Access</p>
+          <p>Allow Access to get weather Information</p>
+          <button class="btn" data-grantAccess>Grant Access</button>
+          <p>Created by Lavish Nagar</p>
+        </div>
+
+
+        <!-- Search form-->
+        <form class="form-container" data-searchform>
+          <input type="text" placeholder="Search for city" data-searchinput />
+          <button class="btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+
+        <!--loading screen container-->
+        <div class="loading-container">
+          <img src="loading.gif" width="120" height="120" />
+          <p>Loading</p>
+        </div>
+
+        <!-- show wheather on ui -->
+        <div class="sub-container user-info-container">
+          <div class="name">
+            <p data-cityname></p>
+            <img data-countryicon />
+          </div>
+          <!--wheather description-->
+          <p data-weatherdesc></p>
+          <!--weather Icon-->
+          <img data-weathericon />
+          <!--temperature-->
+          <p data-temperature></p>
+          <!--3 cards - parameters-->
+
+          <div class="parameter-container">
+            <!--card1-->
+            <div class="parameter">
+              <img src="wind.jpg" height="100" width="100" />
+              <p>windspeed</p>
+              <p data-windspeed></p>
+            </div>
+            <!--card2-->
+            <div class="parameter">
+              <img src="humidity.jpg" height="100" width="100" />
+              <p>humidity</p>
+              <p data-humadity></p>
+            </div>
+            <!--card3-->
+            <div class="parameter">
+              <img src="cloud.jpg" height="100" width="100" />
+              <p>clouds</p>
+              <p data-cloudness></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="whetherapp.js"></script>
+  </body>
+</html>

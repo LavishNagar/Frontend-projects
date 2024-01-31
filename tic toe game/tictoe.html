@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      .wrapper {
+        display: grid;
+        place-items: center;
+
+        width: 100vw;
+        height: 100vh;
+        background-image: linear-gradient(red, yellow);
+      }
+      .playerwin {
+        color: white;
+        border: 1px solid black;
+        background-color: rgba(255, 255, 255, 0.15);
+        padding: 9px 24px;
+        font-size: 17px;
+        border-radius: 10px;
+        letter-spacing: 1px;
+      }
+      .mainbox {
+        height: 17rem;
+        background-color: rgba(255, 255, 255, 0.15);
+        width: 17rem;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        padding: 1.6rem;
+        border-radius: 11px;
+      }
+      .box {
+        color: yellow;
+        cursor: pointer;
+        padding: 1rem 1.4rem;
+        font-size: 2.2rem;
+      }
+      .box1,
+      .box2,
+      .box4,
+      .box5 {
+        border-right: 2px solid white;
+        border-bottom: 2px solid white;
+      }
+
+      .box3,
+      .box6 {
+        border-bottom: 2px solid white;
+      }
+
+      .box7,
+      .box8 {
+        border-right: 2px solid white;
+      }
+      .btn {
+        all: unset;
+        padding: 8px 25px;
+        border-radius: 2rem;
+        color: green;
+        background-color: rgba(255, 255, 255, 0.25);
+
+        border: 1px solid black;
+        visibility:hidden;
+      }
+      .btn.active {
+        visibility: visible;
+      }
+      .win {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="playerwin"></div>
+      <div class="mainbox">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+        <div class="box box6"></div>
+        <div class="box box7"></div>
+        <div class="box box8"></div>
+        <div class="box box9"></div>
+      </div>
+      <button class="btn">New Game</button>
+    </div>
+    <script>
+
+      const allboxes=document.querySelectorAll('.box');
+      const gameinfo=document.querySelector('.playerwin');
+      let btn=document.querySelector('.btn');
+      const another=document.querySelector('.mainbox');
+
+      let currentplayer;
+      let gameGrid;
+
+      const winingposition=[
+          [0,1,2],
+          [3,4,5],
+          [6,7,8],
+          [0,3,6],
+          [1,4,7],
+          [2,5,8],
+          [0,4,8],
+          [2,4,6]
+          ]
+
+      function init(){
+          currentplayer='X';
+          gameinfo.innerHTML=`Current Player- ${currentplayer}`;
+          gameGrid=["","","","","","","","",""];
+          allboxes.forEach((box,index)=>{
+            box.innerText="";
+            allboxes[index].style.pointerEvents="all";
+          })
+          btn.classList.remove('active');
+          //now remove winnings background color green;
+          allboxes.forEach((box)=>{
+           box.classList.remove('win');
+          })
+
+      }
+      init();
+      
+      
+
+      function handleclick(index){
+          if(gameGrid[index]===""){
+
+             allboxes[index].innerText=currentplayer;
+             gameGrid[index]=currentplayer;
+             allboxes[index].style.pointerEvents='none';
+             swapTurn();
+             checkGameOver();
+          }
+
+      }
+
+      
+      function swapTurn(){
+          if(currentplayer==='X'){
+              currentplayer='O';
+          }
+          else{
+              currentplayer='X';
+          }
+          gameinfo.innerText=`Current Player- ${currentplayer}`
+      }
+
+      allboxes.forEach((box,index)=>{
+          box.addEventListener("click",()=>{
+              handleclick(index);
+
+          })
+      });
+      btn.addEventListener('click',init);
+
+
+
+      function checkGameOver(){
+       let answer="";
+       winingposition.forEach((position)=>{
+        if( (gameGrid[position[0]]!=="" || gameGrid[position[1]]!=="" || gameGrid[position[2]]!=="") && (gameGrid[position[0]]===gameGrid[position[1]]) && (gameGrid[position[1]]===gameGrid[position[2]]) ){
+
+       
+
+
+            allboxes[position[0]].classList.add('win');
+            allboxes[position[1]].classList.add('win');
+            allboxes[position[2]].classList.add('win');
+
+            if(gameGrid[position[0]]==="X"){
+                answer="X";
+            }
+            else{
+                answer="O";
+            }
+            allboxes.forEach((box)=>{
+                box.style.pointerEvents='none';
+            })
+
+            
+
+        }
+       })
+  if(answer!==""){
+        gameinfo.innerText=`Winner Player- ${answer}`;
+        
+        btn.classList.add('active');
+      }
+
+      else{
+        let fillcount=0;
+      gameGrid.forEach((box)=>{
+        if(box!==""){
+            fillcount++;
+        }
+      })
+
+      if(fillcount===9){
+        gameinfo.innerText="Game Tied !";
+        btn.classList.add('active');
+      }
+      }
+
+
+    }
+    
+    </script>
+  </body>
+</html>

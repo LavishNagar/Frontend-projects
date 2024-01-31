@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>project 1</title>
+
+    <style>
+        #main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            
+        }
+      .i {
+        text-align: center;
+        padding: 16px;
+        font-size: 30px;
+        height: 90px;
+        width: 160px;
+        border: 3px solid black;
+        border-radius: 16px;
+        background: yellow;
+      }
+      body{
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="padding: 40px;">This is a project of increment and decrement</h1>
+    <div id="main">
+        <button id="decrement" class="i">-</button>
+        <div id="value" class="i" style="border-radius: 20px; height: 40px; width: 70px;"> 0</div>
+        <button id="increment" class="i"> + </button> 
+        
+    </div>
+  </body>
+
+  <script>
+    let b=0;
+let a=document.querySelector('#value');
+let d=document.querySelector('#decrement ')
+let c=document.querySelector('#increment');
+c.addEventListener('click',function(){
+    a.textContent=b++;
+})
+d.addEventListener('click',function(){
+    a.innerHTML=b--;
+})
+
+
+
+  </script>
+</html>
